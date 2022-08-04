@@ -4,6 +4,7 @@
 
 // 즉, 과정에서 redux를 건드릴 필요가 없이 action과 reducer에서 새로 추가된 ACTION을 넣어주기만 하면 작동한다.
 
-export const INCREASE = 'increase';
-export const DECREASE = 'decrease';
-export const RESET = 'reset';
+export const INCREASE_COUNTER = 'increase counter';
+export const ASYNC_INCREASE_COUNTER = 'async increase counter';
+export const DECREASE_COUNTER = 'decrease counter';
+export const SET_COUNTER = 'set counter';

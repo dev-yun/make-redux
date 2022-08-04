@@ -10,7 +10,7 @@ export function createStore(reducer) {
     const handlers = [];
     
     // action을 상태로 보낸다는 의미의 dispath라는 이름을 사용한다. (send로 구현한 부분)
-    function dispath(action) {
+    function dispatch(action) {
         state = reducer(state, action);
         handlers.forEach(handler => handler());
     }
@@ -24,9 +24,11 @@ export function createStore(reducer) {
         handlers.push(handler);
     }
 
-    return {
-        dispath,
+    const store = {
+        dispatch,
         getState,
         subscribe,
     };
+
+    return store;
 }
