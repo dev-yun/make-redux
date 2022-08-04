@@ -10,7 +10,6 @@ export function createStore(reducer, middlewares = []) {
     const handlers = [];
     
     function dispatch(action) {
-        console.log("reduce => ", action)
         state = reducer(state, action);
         handlers.forEach(handler => handler());
     }
@@ -40,11 +39,7 @@ export function createStore(reducer, middlewares = []) {
 
     // 마지막으로 원본 dispatch에 middleware들의 정보를 담은 lastDispatch를 오버라이트 한다.
     // 이러한 테크닉을 Monkey patching 이라고 한다. (기존의 함수를 다른 것으로 교체하고 교체된 함수에 다른것을 끼어넣은뒤 기존의 함수에 오버라이트 함)
-    console.log(store.dispatch);
-    
     store.dispatch = lastDispatch;
-
-    console.log(store.dispatch);
 
     return store;
 }
